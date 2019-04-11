@@ -1,0 +1,31 @@
+<div class="col-12 main-wrapper">
+	<div class="col-12">
+		<app-list-filters (search)="search($event)" (filterByPreparation)="filterByPreparation($event)" (filterByDuration)="filterByDuration($event)" (clearFilters)="clearFilters($event)"></app-list-filters>
+	</div>
+	<div class="col-4 no-gutters float-left" id="actividades-requeridos">
+		<app-category-filter (filter)="filterByDisability($event)" selectedDisability="selectedDisability"></app-category-filter>
+	</div>
+
+	<div class="col-8 no-gutters float-left" id="actividades">
+		<div class="col-12">
+			<h3>Trabajos</h3>
+		</div>
+			
+		<div class="col-12">
+			<app-job-list [jobs]="visibleJobs"></app-job-list>
+		</div>
+
+		<div class="col-12 pagination">
+			<nav aria-label="Page navigation example" class="mx-auto">
+			  <ul class="pagination">
+			    <li class="page-item" *ngIf="currentIndex > 1"><a (click)="changePage(currentIndex-1)" class="page-link">Previo</a></li>
+			    <li class="page-item" [ngClass]="{'active':currentIndex === item}" *ngFor="let item of numberOfPagesArray"><a class="page-link" (click)="changePage(item)">{{item}}</a></li>
+			    <li class="page-item" *ngIf="currentIndex < totalPages"><a (click)="changePage(currentIndex+1)" class="page-link">Siguiente</a></li>
+			  </ul>
+			</nav>
+		</div>
+
+	</div>
+
+	
+</div>

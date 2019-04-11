@@ -1,0 +1,95 @@
+<div class="card">
+	<h2 class="alert alert-dark mt-3">Llena tus datos en esta forma por favor.</h2>
+	<form [formGroup]="fillingForm" (ngSubmit)="onSubmit()" >
+	  <div class="pt-3">
+	  	<div class="row pl-4">
+	  		<h4>Información Personal</h4>
+		  	<div class="clearfix"></div>
+		    <div class="col-md-3">
+		    	<mat-form-field class="example-full-width">
+		      	<input matInput type="text" formControlName="name" class="form-control" placeholder="Nombre" required>
+				  </mat-form-field>
+
+		    </div>
+		    <div class="col-md-3">
+		    	<mat-form-field class="example-full-width">
+		      	<input matInput type="text" formControlName="lastName" class="form-control" placeholder="Apellido">
+		      </mat-form-field>
+		    </div>
+		    <div class="col-md-3">
+		    	<mat-form-field class="example-full-width">
+		      	<input matInput type="number" formControlName="age" class="form-control" placeholder="Edad">
+		      </mat-form-field>
+		    </div>
+		    <div class="col-md-3 mt-3">
+					<mat-form-field>
+			      <select matNativeControl class="form-control" formControlName="sex" id="sex">
+				      <option selected [value]="sexo">Sexo</option>
+				      <option [value]="m">M</option>
+				      <option [value]="f">F</option>
+				    </select>
+				  </mat-form-field>
+		    </div>
+		  </div>
+	  </div>
+	  <div class="pt-3">
+	  	<div formGroupName="address" class="row pl-4">
+	    	<h4>Dirección</h4>
+	    	<div class="clearfix"></div>
+	    	<div class="col-md-6">
+		    	<div class="mb-1">
+		    		<mat-form-field class="example-full-width">
+		    			<input matInput type="text" formControlName="street" placeholder="Calle" class="form-control">
+		    		</mat-form-field>
+		    	</div>
+		    	<div class="mb-1">
+		    		<mat-form-field class="example-full-width">
+		    			<input matInput type="text" formControlName="city" placeholder="Ciudad" class="form-control">
+		    		</mat-form-field>
+		    	</div>
+		    </div>
+				<div class="col-md-6">
+					<div class="mb-1">
+		    		<mat-form-field class="example-full-width">
+		    			<input matInput type="text" formControlName="state"
+		    		placeholder="Estado" class="form-control">
+		    		</mat-form-field>
+		    	</div>
+		    	<div class="mb-1">
+		    		<mat-form-field class="example-full-width">
+		    			<input matInput type="text" formControlName="zip"
+		    		placeholder="Código Postal" class="form-control">
+		    		</mat-form-field>
+		    	</div>	
+				</div>
+	    	
+	    </div>
+
+	    <div formGroupName="contactData" class="row pl-4">
+	    	<h4>Información de Contacto</h4>
+	    	<div class="clearfix"></div>
+	    	<div class="col-md-6">
+		    	<div class="mb-1">
+		    		<mat-form-field class="example-full-width">
+		    			<input matInput type="tel" formControlName="tel" placeholder="Teléfono" class="form-control">
+		    		</mat-form-field>
+		    	</div>
+		    	<div class="mb-1">
+		    		<mat-form-field class="example-full-width">
+		    			<input matInput type="email" formControlName="email" placeholder="Email" class="form-control">
+		    		</mat-form-field>
+		    	</div>
+		    </div>
+
+	    	
+	    </div>
+
+	  </div>
+	  <div class="pt-1 pb-2">
+	  	<div class="col-md-2">
+	  		<button type="submit" [disabled]="!fillingForm.valid" class="btn btn-primary mt-3 mr-3">Guardar</button>	
+	  	</div>
+	  </div>
+	  
+	</form>
+</div>

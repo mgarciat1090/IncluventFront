@@ -1,0 +1,44 @@
+<section class="col-12 my-5" id="#container-nav">
+	<ul class="nav nav-pills">
+		<li class="nav-item">
+			<div class="alert alert-primary" role="alert">
+				Listado
+			</div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">Nivel de Preparación</a>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" (click)="filterByPreparationAction('curso')">Curso</a>
+				<a class="dropdown-item" (click)="filterByPreparationAction('primaria')">Primaria</a>
+				<a class="dropdown-item" (click)="filterByPreparationAction('secundaria')">Secundaria</a>
+				<a class="dropdown-item" (click)="filterByPreparationAction('preparatoria')">Preparatoria</a>
+				<a class="dropdown-item" (click)="filterByPreparationAction('licenciatura')">Licenciatura</a>
+				<a class="dropdown-item" (click)="filterByPreparationAction('posgrado')">Posgrado</a>
+			</div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">Horas Requeridas</a>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" (click)="filterByDurationAction(1)">1</a>
+				<a class="dropdown-item" (click)="filterByDurationAction(2)">2</a>
+				<a class="dropdown-item" (click)="filterByDurationAction(3)">3</a>
+				<a class="dropdown-item" (click)="filterByDurationAction(4)">4+</a>
+				<a class="dropdown-item" (click)="filterByDurationAction(8)">8</a>
+			</div>
+		</li>
+		<li>
+			<div class="input-group">
+			  <input type="text" class="form-control" placeholder="Búsqueda" aria-label="Búsqueda" aria-describedby="Búsqueda" [(ngModel)]="searchTerm">
+			  <div class="input-group-append">
+			    <button class="btn btn-outline-secondary" (click)="searchAction(searchTerm)" type="button">Buscar</button>
+			  </div>
+			</div>
+		</li>
+		<li>
+			<div class="input-group pl-2">
+				<button type="button" (click)="clearFiltersAction()" class="btn btn-dark">Borrar Filtros</button>
+			</div>
+		</li>
+	</ul>
+</section>
+<!-- END CONTAINER-NAV -->

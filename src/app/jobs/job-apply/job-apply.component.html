@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div *ngIf="job" class="jumbotron mt-3">
+				<h1>{{ job.title}}</h1>
+				
+				<div class="row">
+					<div class="col-md-6">
+						<p *ngIf="job"><b>Descripción: </b>{{ job.description }}</p>
+				  	<p *ngIf="job"><b>Fecha de publicación: </b>{{ job.publishedDate }}</p>
+				  	<div>
+				  		<button *ngIf="!isFillingForm" type="button" (click)="fillForm()" class="btn btn-success">Llenar Formulario</button>
+				  		<button *ngIf="isFillingForm" type="submit" (click)="fillForm()" class="btn btn-danger mt-3">Cancelar</button>
+
+				  	</div>
+					</div>
+					<div class="col-md-6">
+						<p *ngIf="company"><b>Compañía: </b>{{company.name }}</p>
+						<p *ngIf="company"><b>Tagline: </b>{{company.tagline}}</p>
+						<p *ngIf="company"><b>Dirección: </b>{{company.address}}</p>
+					</div>
+				</div>
+
+			</div>
+			<div *ngIf="!job">
+				<div class="spinner-container mx-auto">
+					<i class="fas fa-spinner fa-spin"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		
+	</div>
+	<div class="row" *ngIf="isFillingForm">
+		<app-resume-form class="col-md-12"></app-resume-form>
+	</div>
+</div>

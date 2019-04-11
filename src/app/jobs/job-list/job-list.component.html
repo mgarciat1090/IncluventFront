@@ -1,0 +1,32 @@
+<div class="loader mx-auto my-5" *ngIf="!jobs">
+	<i class="fas fa-spinner fa-spin"></i>
+</div>
+<section class="col-12" *ngIf="jobs" id="container-table table-responsive">
+	<table class="table table-bordered c">
+		<thead class="thead-dark">
+			<tr>
+				<th>Puesto</th>
+				<th>Compañía</th>
+				<th>Discapacidad</th>
+				<th>Horas Requeridas</th>
+				<th>Incluye Transporte </th>
+				<th>Nivel de Estudios </th>
+				<th>Descripción </th>
+				<th>Aplicar </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let job of jobs">
+				<td>{{job.title}}</td>
+				<td>{{ job.company.name }}</td>
+				<td><i class="fas {{ getDisabilityClass(job.disability) }}"></i></td>
+				<td>{{ job.duration }} horas</td>
+				<td>{{ job.transport ? 'Si' : 'No' }}</td>
+				<td>{{ job.preparation }}</td>
+				<td>{{ job.description }}</td>
+				<td><button [routerLink]="['/aplicar/', job.id]" type="button" class="btn btn-primary">Aplicar</button></td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+<!-- END  container-table -->

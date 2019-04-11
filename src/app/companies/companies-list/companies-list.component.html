@@ -1,0 +1,36 @@
+<div class="container">
+	
+	<div class="col-sm-12 mt-4">
+		<div class="jumbotron">
+			
+			<h1>Empresas Inclusivas</h1>
+			<p class="lead">Estas empresas conocen los beneficios y favorecen la inclusión de personas con discapacidad en sus líneas operativas. considera echarles un vistazo para saber más acerca de lo que hacen para apoyar la inclusividad.</p>
+
+		</div>
+	</div>
+
+	<div class="col-sm-12 mt-4">
+		<div class="row">
+			<div class="company card-holder col-md-4" *ngFor="let company of companies">
+				<div class="card">
+					<div class="card-header">
+						<div class="image-wrapper my-2">
+							<img class="img-logo img-fluid mx-auto" src="assets/{{company.img}}" alt="">
+						</div>
+						<h2>{{company.name}}</h2>
+					</div>
+					<div class="card-body">
+						
+						<p class="tagline"><b>Descripción:</b> {{company.tagline}}</p>
+						<p class="address"><b>Dirección:</b> {{company.address}}</p>
+							<a href="#" [routerLink]="['/empresa',company.id]" class="btn btn-primary mr-2">Más Información</a>
+							<a href="#" [routerLink]="['/empresa',company.id,'empleos']" class="btn btn-secondary mr-2">Ver Empleos</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
